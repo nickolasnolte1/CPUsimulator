@@ -1,17 +1,23 @@
 import IntegratedCircuit
+from RAM import RAM 
 
-class CU (IntegratedCircuit):
+class CU:
 
-    def __init__ (self, InstructionReg, InstAddReg):
-        self.InstructionReg = InstructionReg
-        self.InstAddReg = InstAddReg
+    def __init__ (self):
+        self.fetch = RAM.getCode(self)
+        
 
+    def __str__(self): 
+        return f"{self.fetch}"
     
-    def fetch (self):
-        pass
+    #def doFetch (self):
+        #return self.fetch
 
-    def decode(self):
-        pass
+    #def decode(self):
+        #pass
 
-    def execute (self):
-        pass
+    #def execute (self):
+        #pass
+
+ejemplo = CU()
+print(ejemplo)

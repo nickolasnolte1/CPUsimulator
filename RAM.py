@@ -1,7 +1,7 @@
 class RAM:
 
-    def __init__(self, data):
-        self.data = data
+    def __init__(self):
+        #self.data = data
         self.instructions = open("cpufm.txt", "r")
         self.code = {}
         for line in self.instructions: 
@@ -9,10 +9,13 @@ class RAM:
                 upcode, operand = line.strip().split(" ", 1)
                 self.code[upcode] = operand
                 
+    def getCode(self):
+        return self.code
+
 #SOLO PARA PROBAR 
     def __str__(self):
         return f""" FILE:\n{self.code} """
 
     
-ejemplo = RAM("hola")
+ejemplo = RAM()
 print(ejemplo)
