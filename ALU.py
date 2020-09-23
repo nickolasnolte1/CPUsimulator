@@ -8,26 +8,47 @@ class ALU (IntegratedCircuit):
         self.negative = negative 
         self.OPcode = OPcode
         self.inputs = inputs
+        self.result = result
+
+    def zero (self, result):
+        if (self.result == 0):
+            self.zero == 0
+            return self.zero
+
+    def overflow (self, result):
+        if (self.result >= 15):
+            self.overflow = self.result
+            return self.overflow
+
+    def negative(self, result):
+        if (self.result < 0):
+            self.negative = self.result
+            return self.negative
 
     def add (self, r1, r2):
-        return r1 + r2
+        self.result = r1 + r2
+        return self.result
 
     def sub (self, r1, r2):
-        return r1 - r2
+        self.result = r1 - r2
+        return self.result
 
     def subborrow (self, r1, r2):
         
         while(r1 != 0):
             borrow = (~r1) & r2 
-            r1 = r1 ^ r2             #chequear si lo hice bien
+            self.result = r1 ^ r2             #chequear si lo hice bien
             r2 = borrow << 1
-        return r1
+        return self.result
 
     def onescomplement (self, r1):
-        return ~r1
+        self.result = ~r1
+        return self.result
 
     def towscomplement (self, r1):
-        return ~r1 + 1
+        self.result = ~r1 + 1
+        return self.result
+        
 
     def logicand (self, r1, r2):
 
@@ -60,8 +81,8 @@ class ALU (IntegratedCircuit):
         return greater
 
     def less (self, r1, r2):
-        less = r1< r2
-        return less
+        less = r1 < r2
+        return less 
 
     def greaterequal (self, r1, r2):
         greaterequal = r1 >= r2
