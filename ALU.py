@@ -2,92 +2,73 @@ import IntegratedCircuit
 
 class ALU (IntegratedCircuit):
 
-    def __init__(self, zero, overflow, negative, OPcode, inputs):
-        self.zero = zero
-        self.overflow = overflow
-        self.negative = negative 
+    def __init__(self, zero, overflow, negative, OPcode, output, inputA, inputB):
+        self.zero = 0
+        self.overflow = 0
+        self.negative = 0
         self.OPcode = OPcode
-        self.inputs = inputs
+        self.output = output
         self.result = result
 
-    def zero (self, result):
-        if (self.result == 0):
-            self.zero == 0
-            return self.zero
 
-    def overflow (self, result):
-        if (self.result >= 15):
-            self.overflow = self.result
-            return self.overflow
+    def add (self):
+        return self.inputA + self.inputB
 
-    def negative(self, result):
-        if (self.result < 0):
-            self.negative = self.result
-            return self.negative
+    def sub (self):
+        return self.inputA - self.inputB
 
-    def add (self, r1, r2):
-        self.result = r1 + r2
+    def subborrow (self):
+        while(self.inputA != 0):
+            borrow = (~self.inputA) & self.inputB 
+            self.result = self.inputA ^ self.inputB             #chequear si lo hice bien
+            self.inputB = borrow << 1
         return self.result
 
-    def sub (self, r1, r2):
-        self.result = r1 - r2
-        return self.result
-
-    def subborrow (self, r1, r2):
+    def onescomplement (self):
+        return ~self.inputA
         
-        while(r1 != 0):
-            borrow = (~r1) & r2 
-            self.result = r1 ^ r2             #chequear si lo hice bien
-            r2 = borrow << 1
-        return self.result
-
-    def onescomplement (self, r1):
-        self.result = ~r1
-        return self.result
 
     def towscomplement (self, r1):
-        self.result = ~r1 + 1
-        return self.result
+        return ~self.inputA + 1
         
+    def logicand (self):
+        return self.inputA & self.inputB
 
-    def logicand (self, r1, r2):
+    def logicor (self):
+        return self.inputA | self.inputB 
 
-        AND = r1 & r2
-        return AND 
-        #if r1 == 1 and r2 == 1:
-        #    return 1
-        #else:
-        #    return 0
+    def lshift (self):
+        return self.inputA << self.inputB
 
-    def logicor (self, r1, r2):
+    def rshift (self):
+        return self.inputA >> self.inputB 
 
-        OR = r1 | r2
-        return OR
-        #if r1 == 1 or r2 == 1:
-        #    return 1
-        #else:
-        #    return 0
-
-    def lshift (self, r1, r2):
-        left = r1 << r2
-        return left
-
-    def rshift (self, r1, r2):
-        right = r1 >> r2
-        return right 
-
-    def greater (self, r1, r2):
-        greater = r1 > r2
-        return greater
+    def greater (self):
+        return self.inputA > self.inputB
 
     def less (self, r1, r2):
-        less = r1 < r2
-        return less 
+        return self.inputA < self.inputB 
 
-    def greaterequal (self, r1, r2):
-        greaterequal = r1 >= r2
-        return greaterequal
+    def greaterequal (self):
+        return self.inputA >= self.inputB
 
     def lessequal (self, r1, r2):
-        lessequal = r1<= r2
-        return lessequal
+        return self.inputA <= self.inputB
+
+    def calculate (self, output):
+        self.output = output
+        if (self.output == 0):
+            self.zero == 1
+        elif (self.output > 15):
+            self.overflow = 1
+        elif (self.output < 0):
+            self.negative = 1
+
+    def zero (self, result):
+        return self.zero
+
+    def overflow (self, result):
+        return self.overflow
+
+    def negative(self, result):
+        return self.negative
