@@ -8,7 +8,8 @@ class ALU (IntegratedCircuit):
         self.negative = 0
         self.OPcode = OPcode
         self.output = output
-        self.result = result
+        self.inputA = inputA
+        self.inputB = inputB
 
 
     def add (self):
@@ -58,11 +59,11 @@ class ALU (IntegratedCircuit):
     def calculate (self, output):
         self.output = output
         if (self.output == 0):
-            self.zero == 1
+            return self.zero == 1
         elif (self.output > 15):
-            self.overflow = 1
+            return self.overflow == 1
         elif (self.output < 0):
-            self.negative = 1
+            return self.negative == 1
 
     def zero (self, result):
         return self.zero
