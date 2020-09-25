@@ -1,6 +1,6 @@
 import IntegratedCircuit
 
-class ALU (IntegratedCircuit):
+class Alu (IntegratedCircuit):
 
     def __init__(self, zero, overflow, negative, OPcode, output, inputA, inputB):
         self.zero = 0

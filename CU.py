@@ -1,6 +1,14 @@
+<<<<<<< HEAD
 from IntegratedCircuit import IntegratedCircuit
 from RAM import Ram 
 #from ROM import ROM
+=======
+import IntegratedCircuit
+from RAM import Ram 
+from Registers import Registers
+from ROM import Rom
+from ALU import Alu 
+>>>>>>> 55562f7d83bf8450959fdd0a993fcf793e3b5c34
 
 class CU(IntegratedCircuit):
 
@@ -27,8 +35,27 @@ class CU(IntegratedCircuit):
             return self.IAR
     
 
+<<<<<<< HEAD
     def decode(self):
         pass
+=======
+    def decode(self, instruct, location):
+        self.instruct = instruct
+        self.location = location
+
+        if (instruct == 'OutputToRam'):
+            print("no entendi que hace")
+        elif (instruct == 'RamToR0'):
+            Do = self.r0[0] = self.location
+        elif (instruct == 'RamToR1'):
+            Do = self.r1[0] = self.location
+        elif (instruct == 'DoesAND'):
+            Do = 'and'
+        elif (instruct == 'ReadConstantToR0'):
+            Do = ''
+        
+
+>>>>>>> 55562f7d83bf8450959fdd0a993fcf793e3b5c34
 
     #def execute (self):
         #pass

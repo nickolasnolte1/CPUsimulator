@@ -1,7 +1,7 @@
 import yaml
 import Registers
 
-class ROM:
+class Rom:
 
     def __init__(self, opcode, operand):
         self.opcode = opcode
@@ -50,7 +50,6 @@ class ROM:
 
 
     def istOpcode (self):
-
         if (self.opcode == '0000' or 'OUTPUT' or'OUT'):
             instruct = 'OutputToRam'
         elif (self.opcode == '0001' or 'LOAD_R0' or 'LD_R0'):
@@ -83,6 +82,7 @@ class ROM:
             instruct = 'Inventado'
         elif (self.opcode == '1111' or 'HALT' or 'HLT'):
             instruct = 'ProgramDone'
+        return instruct
 
 
     def convertOperand(self):
@@ -118,3 +118,4 @@ class ROM:
             location = self.data['14']
         elif (self.operand == '1111' or '17' or '15' or 'F'):
             location = self.data['15']
+        return location
