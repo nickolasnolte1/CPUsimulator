@@ -1,31 +1,13 @@
-import os, time
+import time
+class CPUclock:
+    def _init_(self,frecuencia): #Frecuencia en Hertz
+        self.frecuencia = frecuencia
 
-def notify(text):
-    os.system(f"""
-              osascript -e 'display notification "{text}"'""")
-
-start = 0
-
-while (True):
-    countdown = int(input("Ingrese un número mayor a cero: "))
-    if (countdown<=0):
-        continue
-    else: 
-        while start < countdown:
-            m, s = divmod(start, 60)
-            clock = str(m).zfill(2) + ":" + str(s).zfill(2)
-            print(clock, end ="\r")
-            time.sleep(1)
-            start += 1
-            if (start == countdown):
-                text = 'El reloj se ha parado'
-                notify(text)
-                print(f"Los {countdown} segs terminaron")
-                break
-    break
-
-
-
-
-
-        
+    def tiempo(self, frecuencia):
+        if (frecuencia > 0):
+            self.frecuencia = 1/frecuencia
+        else:
+            self.frecuencia = 0
+    
+    def sleepScreen(self):
+        time.sleep(self.frecuencia) 
