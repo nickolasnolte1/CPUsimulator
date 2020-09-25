@@ -50,8 +50,6 @@ class Rom:
 
 
     def istOpcode (self):
-
-
         if (self.opcode == '0000' or 'OUTPUT' or'OUT'):
             instruct = 'OutputToRam'
         elif (self.opcode == '0001' or 'LOAD_R0' or 'LD_R0'):
