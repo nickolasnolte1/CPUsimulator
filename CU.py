@@ -1,5 +1,8 @@
 import IntegratedCircuit
-from RAM import RAM 
+from RAM import Ram 
+from Registers import Registers
+from ROM import Rom
+from ALU import Alu 
 
 class CU:
 
@@ -13,8 +16,22 @@ class CU:
     #def doFetch (self):
         #return self.fetch
 
-    #def decode(self):
-        #pass
+    def decode(self, instruct, location):
+        self.instruct = instruct
+        self.location = location
+
+        if (instruct == 'OutputToRam'):
+            print("no entendi que hace")
+        elif (instruct == 'RamToR0'):
+            Do = self.r0[0] = self.location
+        elif (instruct == 'RamToR1'):
+            Do = self.r1[0] = self.location
+        elif (instruct == 'DoesAND'):
+            Do = 'and'
+        elif (instruct == 'ReadConstantToR0'):
+            Do = ''
+        
+
 
     #def execute (self):
         #pass
