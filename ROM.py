@@ -85,7 +85,7 @@ class ROM:
             instruct = 'ProgramDone'
 
 
-    def istOperand(self):
+    def convertOperand(self):
         if (self.operand == '0000' or '0'):
             location = self.data['0']
         elif (self.operand == '0001' or '1'):
