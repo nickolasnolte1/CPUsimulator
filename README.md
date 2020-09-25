@@ -15,6 +15,7 @@ Se dividió el programa por módulos y clases con sus respectivos atributos y m�
 CU: La unidad de control es responsable de buscar el conjunto de instrucciones, controlando el flujo de datos en toda el CPU, también controla el tiempo de cada operación y la interacción con dispositivos periféricos.
 
 ALU: Unidad Aritmética Lógica, es un circuito electrónico digital responsable de (dependiendo del procesador) hacer todas las operaciones aritméticas como (pero No limitado a):
+
 ● Sumar
 
 ● Restar
