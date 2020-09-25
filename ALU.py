@@ -1,4 +1,4 @@
-import IntegratedCircuit
+from IntegratedCircuit import IntegratedCircuit
 
 class Alu (IntegratedCircuit):
 
