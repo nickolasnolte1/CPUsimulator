@@ -2,26 +2,33 @@ import IntegratedCircuit
 
 class Registers():
 
-        def __init__ (self, place):
-            self.place = place
+        def __init__ (self):
+            self.place = ''
 
         def reg0(self):
-            self.r0 = []
+            r0 = []
+            return r0
         
         def reg1(self):
-            self.r1 = []
+            r1 = []
+            return r1
 
         def reg2(self):
-            self.r2 = []
+            r2 = []
+            return r2
 
         def reg3(self):
-            self.r3 = []
+            r3 = []
+            return r3
 
         def pc(self):
-            self.iar = []
+            iar = []
+            return iar
 
         def inputreg(self):
-            self.input = []
+            inpt = []
+            return inpt
 
         def outputreg(self):
-            self.out = []
+            outpt = []
+            return outpt
