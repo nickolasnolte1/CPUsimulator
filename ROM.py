@@ -77,9 +77,9 @@ class Rom:
         elif (self.opcode == '1100' or 'JMP_N' or 'JUMP_NEG'):
             instruct = 'NegativeAluJump'
         elif (self.opcode == '1101'):
-            instruct = 'Inventado'
+            instruct = 'Multiply'
         elif (self.opcode == '1110'):
-            instruct = 'Inventado'
+            instruct = 'Divide'
         elif (self.opcode == '1111' or 'HALT' or 'HLT'):
             instruct = 'ProgramDone'
         return instruct
