@@ -1,4 +1,4 @@
-; suma y division
+; Ejemplo de suma y division
 LOAD_R0 6
 LD_R1 1001
 1001 R0 R1 
