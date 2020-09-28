@@ -1,4 +1,4 @@
-from IntegratedCircuit import IntegratedCircuitgit 
+from IntegratedCircuit import IntegratedCircuit
 from RAM import Ram 
 from Registers import Registers
 from ROM import Rom
@@ -32,6 +32,7 @@ class CU(IntegratedCircuit):
 
 
     def decode(self, instruct, location):
+        instruction = self.IAR
         self.instruct = instruct
         self.location = location
 

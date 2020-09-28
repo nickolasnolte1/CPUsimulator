@@ -7,8 +7,11 @@ class Rom:
         self.opcode = opcode
         self.operand = operand
 
-        with open ('bios.yaml', 'r') as bios:
+        with open ('bios.yaml', 'r') as biosxs:
             self.bios = yaml.full_load(bios)
+        
+        for toDo in self.bios:
+            pass
 
     def ramtable (self):
         p0 = self.bios['RAM']['data'][0]
