@@ -1,4 +1,4 @@
-; division y jump si es negativo
+;Hacer una división y hacer jump si el número es negativo
 LD_R0 14
 LOAD_R1 11
 1101 R0 R1
