@@ -96,7 +96,7 @@ class CU(IntegratedCircuit):
     def InstructionAddressRegister(self):
         return self.InsAddReg
 
-#ins = ['LOAD_R0', '14']
+#ins = ['LOAD_R0', 'R0', 'R1']
 #ejemplo = CU()
-#var = ejemplo.decode(ins)
+#print(ejemplo.decode(ins))
 #print = ejemplo.execute(var)
