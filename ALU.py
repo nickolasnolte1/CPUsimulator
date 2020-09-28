@@ -1,11 +1,10 @@
 from IntegratedCircuit import IntegratedCircuit
 
 class Alu (IntegratedCircuit):
-
-    def __init__(self, zero, overflow, negative, OPcode, output, inputA, inputB):
-        self.zero = 0
-        self.overflow = 0
-        self.negative = 0
+        def __init__(self, OPcode, output, inputA, inputB, zero = 0, overflow = 0, negative = 0):
+        self.zero
+        self.overflow
+        self.negative
         self.OPcode = OPcode
         self.output = output
         self.inputA = inputA
@@ -47,14 +46,20 @@ class Alu (IntegratedCircuit):
     def greater (self):
         return self.inputA > self.inputB
 
-    def less (self, r1, r2):
+    def less (self,):
         return self.inputA < self.inputB 
 
     def greaterequal (self):
         return self.inputA >= self.inputB
 
-    def lessequal (self, r1, r2):
+    def lessequal (self):
         return self.inputA <= self.inputB
+
+    def multiply (self, r1, r2):
+        return self.inputA * self.inputB
+
+    def divide (self, r1, r2):
+        return self.inputA / self.inputB
 
     def calculate (self, output):
         self.output = output
