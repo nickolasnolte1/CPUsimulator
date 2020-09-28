@@ -10,12 +10,15 @@ class CU(IntegratedCircuit):
 
     def __init__ (self):
         self.InsAddReg = ''
-        self.upcode = " "
+        self.opcode = " "
+        self.operand = ''
         self.code = ''
         self.PC = 0
         self.IAR = ''
         self.ram = Ram()
         self.registers = Registers()
+        self.rom = Rom()
+        self.alu = Alu()
 
         
 
@@ -32,47 +35,55 @@ class CU(IntegratedCircuit):
     
 
 
-    def decode(self, instruct, location):
-        instruction = self.IAR
-        self.instruct = instruct
-        self.location = location
-        Registers()
+    def decode(self, instruction):
+        getOpcode = instruction[0]
+        if (len(instruction) < 3):
+            getOperand = instruction[1]
+        else:
+            getOperand = ''.join(instruction[1][2])
+        data = self.ram.getData()
+        opcode = self.rom.istOpcode(getOpcode)
+        operand = self.rom.convertOperand(getOperand)
+        return opcode, operand
 
-        if (instruct == 'OutputToRam'):
+    def execute(self, opcode, operand):
+        if (opcode == 'OutputToRam'):
             print("no entendi que hace")
-        elif (instruct == 'RamToR0'):
-            r0[0] = self.location
-            Do = r0[0]
-        elif (instruct == 'RamToR1'):
-            r1[0] = self.location
-            Do = r1[0]
-        elif (instruct == 'DoesAND'):
-            Do = 'and'
-        elif (instruct == 'ReadConstantToR0'):
+        elif (opcode == 'RamToR0'):
+            value = self.ram.getValue(operand)
+            r0 = self.registers.reg0(value)
+        elif (opcode == 'RamToR1'):
+            value = self.ram.getValue(operand)
+            r1 = self.registers.reg1(value)
+        elif (opcode == 'DoesAND'):
+            self.alu.logicand()
+        elif (opcode == 'ReadConstantToR0'):
             Do = 'no entendi que hace'
-        elif (instruct == 'FromR0ToRAM'):
-            self.location = r0[0]
-            Do = self.location
-        elif (instruct == 'FromR1ToRAM'):
-            self.location = r1[0]
-            Do = self.location
-        elif (instruct == 'PerformsOR'):
-            Do = 'or'
-        elif (instruct == 'ReadConstantToR1'):
+        elif (opcode == 'FromR0ToRAM'):
+            r0 = self.registers.reg0()
+            self.ram.changeValue(operand, r0)
+        elif (opcode == 'FromR1ToRAM'):
+            r1 = self.registers.reg1()
+            self.ram.changeValue(operand, r1)
+        elif (opcode == 'PerformsOR'):
+            self.alu.logicor()
+        elif (opcode == 'ReadConstantToR1'):
             Do = 'no entendi'
-        elif (instruct == 'AddTwoRegs'):
-            Do = 'add'
-        elif (instruct == 'SubstractTwoRegs'):
-            Do = 'substract'
-        elif (instruct == 'Jump'):
+        elif (opcode == 'AddTwoRegs'):
+            answer = self.alu.add()
+            r2 = self.registers.reg2(answer)
+        elif (opcode == 'SubstractTwoRegs'):
+            answer = self.alu.sub()
+            r2 = self.registers.reg2(answer)
+        elif (opcode == 'Jump'):
             Do = 'no entendi'
-        elif (instruct == 'NegativaAluJump'):
+        elif (opcode == 'NegativaAluJump'):
             Do = 'negativealu'
-        elif (instruct == 'Multiply'):
+        elif (opcode == 'Multiply'):
             Do = 'multiply'
-        elif (instruct == 'Divide'):
+        elif (opcode == 'Divide'):
             Do = 'divide'
-        elif (instruct == 'ProgramDone'):
+        elif (opcode == 'ProgramDone'):
             Do = exit()
         return Do
             
@@ -85,5 +96,7 @@ class CU(IntegratedCircuit):
     def InstructionAddressRegister(self):
         return self.InsAddReg
 
-ejemplo = CU()
-print(ejemplo.doFetch())
+#ins = ['LOAD_R0', '14']
+#ejemplo = CU()
+#var = ejemplo.decode(ins)
+#print = ejemplo.execute(var)

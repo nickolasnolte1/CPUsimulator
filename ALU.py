@@ -1,14 +1,14 @@
 from IntegratedCircuit import IntegratedCircuit
 
 class Alu (IntegratedCircuit):
-        def __init__(self, OPcode, output, inputA, inputB, zero = 0, overflow = 0, negative = 0):
+    def __init__(self, zero = 0, overflow = 0, negative = 0):
         self.zero
         self.overflow
         self.negative
-        self.OPcode = OPcode
-        self.output = output
-        self.inputA = inputA
-        self.inputB = inputB
+        self.OPcode = ' '
+        self.output = int
+        self.inputA = int
+        self.inputB = int
 
 
     def add (self):
@@ -31,7 +31,9 @@ class Alu (IntegratedCircuit):
     def towscomplement (self, r1):
         return ~self.inputA + 1
         
-    def logicand (self):
+    def logicand (self, val1, val2):
+        self.inputA = val1
+        self.inputB = val2
         return self.inputA & self.inputB
 
     def logicor (self):
