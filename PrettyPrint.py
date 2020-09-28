@@ -1,6 +1,6 @@
-#from ROM import Rom
-#from CU import CU
-#from Registers import Registers
+from ROM import Rom
+from CU import CU
+from Registers import Registers
 
 class PrettyPrint():
 
@@ -12,23 +12,28 @@ class PrettyPrint():
         if(self.pprint == '1'):
             print("----------     ----------     ----------     ----------                                         ~R A M~")
             print("|   R0    |    |    R1   |    |   R2    |    |    R3   |------------------------------------|adress  data |")
-            print("|         |    |         |    |         |    |         |                                    |      |      |")
-            print("----------     ----------     ----------     -----------                                    |      |      |")
-            print("     |              |                |            |                                         |      |      |")
-            print("     |               --------------   ----        |                                         |      |      |")
-            print("     ----------------------------  |      |       |                                         |      |      |")
-            print("                                 | |      |       |                                         |      |      |")
-            print("                                **************************************                      |      |      |")
-            print("                                * Control Unit                       *                      |      |      |")
-            print("                                *                                    *                      |      |      |")
-            print("                                *             --------------         *                      |      |      |")
-            print("    -------------------         *            | opcode|operand |      *                      |      |      |")
-            print("     \    ALU        /          *            |       |        |      *                      |      |      |")
-            print("      \             /           *             ---------------        *                      |      |      |")
-            print("       \           /            *    inst.addr.reg                   *                      |      |      |")
-            print("        \         /             *   -----------------                *                      |      |      |")
-            print("         \       /              *  |                 |               *                      |      |      |")
-            print("          \     /               *  |                 |               *                      ---------------")
+            print(f"|         |    |         |    |         |    |         |                                    |      |      |")
+            print(f"----------     ----------     ----------     -----------                                    |      |      |")
+            print(f"     |              |                |            |                                         |      |      |")
+            print(f"     |               --------------   ----        |                                         |      |      |")
+            print(f"     ----------------------------  |      |       |                                         |      |      |")
+            print(f"                                 | |      |       |                                         |      |      |")
+            print(f"                                **************************************                      |      |      |")
+            print(f"                                * Control Unit                       *                      |      |      |")
+            print(f"            ------------------- *                                    *                      |      |      |")
+            print(f"            |    |               *             --------------        *                      |      |      |")
+            print(f"    -------------------         *            | opcode|operand |      *                      |      |      |")
+            print(f"     \     ALU       /          *            |       |        |      *                      |      |      |")
+            print(f"      \             /           *             ---------------        *                      |      |      |")
+            print(f"       \           /            *                                    *                      |      |      |")
+            print(f"        \         /             *            -----------------       *                      |      |      |")
+            print(f"         \       /              *           |  inst.addr.reg  |      *                      |      |      |")
+            print(f"          \     /               *           |                 |      *                      ---------------")
             print("           \___/                **************************************")
-
+            print("             |                        |                           |")
+            print("              ------------------------                            |")
+            print("                                                             ------------")
+            print("                                                            | clock      |")
+            print(f"                                                            |            |")
+            print("                                                             ------------")
 
