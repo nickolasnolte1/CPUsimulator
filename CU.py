@@ -40,20 +40,20 @@ class CU(IntegratedCircuit):
         if (instruct == 'OutputToRam'):
             print("no entendi que hace")
         elif (instruct == 'RamToR0'):
-            r0[0] = self.location
-            Do = r0[0]
+            r0 = self.location
+            Do = r0
         elif (instruct == 'RamToR1'):
-            r1[0] = self.location
-            Do = r1[0]
+            r1 = self.location
+            Do = r1
         elif (instruct == 'DoesAND'):
             Do = 'and'
         elif (instruct == 'ReadConstantToR0'):
             Do = 'no entendi que hace'
         elif (instruct == 'FromR0ToRAM'):
-            self.location = r0[0]
+            self.location = r0
             Do = self.location
         elif (instruct == 'FromR1ToRAM'):
-            self.location = r1[0]
+            self.location = r1
             Do = self.location
         elif (instruct == 'PerformsOR'):
             Do = 'or'
