@@ -1,6 +1,6 @@
 import time
 class CPUclock:
-    def _init_(self,frecuencia = 0.5): #Frecuencia en Hertz
+    def _init_(self,frecuencia = 0.5): #Unidad de la frecuencia: Hertz
         self.frecuencia = frecuencia
 
     def tiempo(self, frecuencia):
